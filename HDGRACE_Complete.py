@@ -23508,6 +23508,14 @@ print("🔧 리팩토링 완료 - 중복 코드 제거, 순서 정리, 문법 �
 
 # 프로그램 종료
 
+def process_feature_batch(start_idx, end_idx):
+    """배치 단위 기능 처리 함수"""
+    processed = 0
+    for i in range(start_idx, end_idx):
+        # 실제 기능 처리 로직
+        processed += 1
+    return processed
+
 # 메인 실행 블록 - 60스레드 병렬 처리 최종 실행
 if __name__ == "__main__":
     print("=" * 80)
@@ -23552,15 +23560,6 @@ if __name__ == "__main__":
     print("=" * 80)
 
 
-def process_feature_batch(start_idx, end_idx):
-    """배치 단위 기능 처리 함수"""
-    processed = 0
-    for i in range(start_idx, end_idx):
-        # 실제 기능 처리 로직
-        processed += 1
-    return processed
-
-
 # HDGRACE 상업용 완전체 시스템 초기화 및 실행
 def initialize_hdgrace_commercial_complete():
     """HDGRACE 상업용 완전체 시스템 초기화"""
@@ -23601,7 +23600,7 @@ def initialize_hdgrace_commercial_complete():
         return system_components
 
 
-def run_hdgrace_commercial_pipeline():
+def run_hdgrace_commercial_pipeline(immediate_activation=False):
     """HDGRACE 상업용 파이프라인 실행"""
     print("🔥 HDGRACE BAS 29.3.1 상업용 파이프라인 실행 시작...")
     
